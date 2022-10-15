@@ -72,8 +72,7 @@ def draw(dt):
     player.draw()
     crash = crashDetection.crash(x, y, rotate, xSpeed, ySpeed, pitch, pixels, modifyerScaleX, modifyerScaleY, velocity, steer)
     x, y, rotate, velocity, xSpeed, ySpeed, steer, reset= crash.crashCheck()
-    if reset == True or reset == True:
-        print(x, y, xSpeed, ySpeed, rotate) 
+    if reset == True or reset == True: 
         player.draw()
         reset = False
         time.sleep(0.75)
