@@ -12,7 +12,7 @@ class carBuild:
         self.newcar.save("car.png")
         
     def sprite(self):
-        self.car1 = pg.image.load(filePath.resource_path("Car.png"))
+        self.car1 = pg.image.load("Car.png")
         self.car1.anchor_x = self.car1.width // 2
         self.car1.anchor_y = self.car1.height // 2
         return self.car1

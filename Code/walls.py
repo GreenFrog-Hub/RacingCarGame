@@ -13,7 +13,7 @@ class walls:
         self.newTrack = self.preTrack.resize((int(self.preTrackWidth*self.modX), int(self.preTrackHeigh*self.modY)))
         self.newTrack.save("BW1.png")
     def loacteWalls(self):
-        self.trackWalls = pyg.image.load(filePath.resource_path("BW1.png"))
+        self.trackWalls = pyg.image.load("BW1.png")
         self.rawimage = self.trackWalls.get_image_data()
         self.data = None
         self.format = 'L'

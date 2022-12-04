@@ -13,5 +13,5 @@ class track:
         self.newTrack = self.preTrack.resize((int(self.preTrackWidth*self.modX), int(self.preTrackHeigh*self.modY)))
         self.newTrack.save("track.png")
     def loadTrack(self):
-        self.track = pyg.image.load(filePath.resource_path("track.png"))
+        self.track = pyg.image.load("track.png")
         return self.track
