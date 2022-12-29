@@ -9,8 +9,8 @@ class movement:
         self.dt = dt
         self.rotation = rotation
         self.steer = steer
-        self.o = math.sin(self.rotation)
-        self.a = math.cos(self.rotation)
+        self.o = math.sin(self.rotation*math.pi/180)
+        self.a = math.cos(self.rotation*math.pi/180)
         self.friction = friction
         self.velocity = velocity
         self.xSpeed = xSpeed
@@ -22,7 +22,7 @@ class movement:
     def keys(self):
         self.xSpeed += self.velocity * math.sin(self.rotation)
         self.ySpeed += self.velocity * math.cos(self.rotation)
-        self.rotation += self.velocity/1.3 * self.steer
+        self.rotation += (self.velocity/1.3 * self.steer)
         self.xSpeed = self.xSpeed / self.friction
         self.ySpeed = self.ySpeed / self.friction
         if self.velocity > 0:
@@ -77,3 +77,12 @@ class movement:
         self.xSpeed = 0
         self.ySpeed = 0
         self.rotation = 0
+    
+    def swap(self, HideTrack):
+        self.HideTrack = HideTrack
+        if pg.window.key.H in self.keysPressed and self.HideTrack == False:
+            self.HideTrack = True
+        elif pg.window.key.H in self.keysPressed and self.HideTrack == True:
+            self.HideTrack = False
+        
+        return self.HideTrack
