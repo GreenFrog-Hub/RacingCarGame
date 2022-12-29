@@ -1,5 +1,6 @@
 import math
 import pyglet as pg
+import time
 
 class movement:
     def __init__(self, dt ,x, y, rotation, keysPressed,modX, modY, friction, velocity, xSpeed, ySpeed, steer):
@@ -81,8 +82,10 @@ class movement:
     def swap(self, HideTrack):
         self.HideTrack = HideTrack
         if pg.window.key.H in self.keysPressed and self.HideTrack == False:
+            time.sleep(0.15)
             self.HideTrack = True
         elif pg.window.key.H in self.keysPressed and self.HideTrack == True:
+            time.sleep(0.15)
             self.HideTrack = False
         
         return self.HideTrack

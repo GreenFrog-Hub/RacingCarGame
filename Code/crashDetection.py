@@ -20,7 +20,7 @@ class crash:
         self.Py = self.y # y orgin
         self.xColl1 = (self.x + 10) * self.modX
         self.yColl1 = (self.y + 17) * self.modY
-        
+
         self.xColl2 = (self.x - 10) * self.modX
         self.yColl2 = (self.y + 17) * self.modY
 
@@ -30,18 +30,28 @@ class crash:
         self.xColl4 = (self.x - 10) * self.modX
         self.yColl4 = (self.y - 17) * self.modY
 
+
     def crashCheck(self):
         self.CollxTP1 = (self.xColl1 - self.Px)*math.cos(self.rotation) + (self.yColl1 - self.Py)* math.sin(self.rotation) + self.Px
         self.CollyTP1 = (self.Px - self.xColl1)*math.sin(self.rotation) + (self.yColl1 - self.Py)* math.cos(self.rotation) + self.Py
+        # circle = pyg.shapes.Circle(self.CollxTP1, self.CollyTP1, 1)
+        # circle.draw()
 
         self.CollxTP2 = (self.xColl2 - self.Px)*math.cos(self.rotation) + (self.yColl2 - self.Py)* math.sin(self.rotation) + self.Px
         self.CollyTP2 = (self.Px - self.xColl2)*math.sin(self.rotation) + (self.yColl2 - self.Py)* math.cos(self.rotation) + self.Py
+        # circle = pyg.shapes.Circle(self.CollxTP2, self.CollyTP2, 1)
+        # circle.draw()
 
         self.CollxTP3 = (self.xColl3 - self.Px)*math.cos(self.rotation) + (self.yColl3 - self.Py)* math.sin(self.rotation) + self.Px
         self.CollyTP3 = (self.Px - self.xColl3)*math.sin(self.rotation) + (self.yColl3 - self.Py)* math.cos(self.rotation) + self.Py
+        # circle = pyg.shapes.Circle(self.CollxTP3, self.CollyTP3, 1)
+        # circle.draw()
 
         self.CollxTP4 = (self.xColl4 - self.Px)*math.cos(self.rotation) + (self.yColl4 - self.Py)* math.sin(self.rotation) + self.Px
         self.CollyTP4 = (self.Px - self.xColl4)*math.sin(self.rotation) + (self.yColl4 - self.Py)* math.cos(self.rotation) + self.Py
+        # circle = pyg.shapes.Circle(self.CollxTP4, self.CollyTP4, 1)
+        # circle.draw()
+
         data1 = self.pixels[self.pitch * int(self.CollyTP1) + int(self.CollxTP1)]
         data2 = self.pixels[self.pitch * int(self.CollyTP2) + int(self.CollxTP2)]
         data3 = self.pixels[self.pitch * int(self.CollyTP3) + int(self.CollxTP3)]

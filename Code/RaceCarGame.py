@@ -17,7 +17,7 @@ ySpeed = 0.0
 friction = 1.08
 velocity = 0.0
 steer = 0.0
-HideTrack = True
+HideTrack = False
 display = pyg.canvas.Display()
 screen = display.get_default_screen()
 screen_width = screen.width
@@ -56,6 +56,10 @@ def on_key_release(symbol, modifiers):
     if symbol in keysPressed:
         keysPressed.remove(symbol)
 
+# def pDraw(player):
+#     playerDraw = player
+#     playerDraw.rotation = math.degrees(rotate)
+#     playerDraw.draw()
 @window.event
 def draw(dt):
     global x
@@ -69,32 +73,32 @@ def draw(dt):
     global pitch
     global pixels
     global HideTrack
-    angles = [0,7.5,15,22.5,30,37.5,45,52.5,60,67.5,75]
+    angles = [0,15,30,45,60,75]
     window.clear()
     
     player = pyg.sprite.Sprite(car, x , y, subpixel= True)
     player.rotation = math.degrees(rotate)
-    player.draw()
+
     move = movement.movement(dt, x, y, rotate, keysPressed,modifyerScaleX, modifyerScaleY, friction, velocity, xSpeed, ySpeed, steer)
     x, y, rotate, velocity, xSpeed, ySpeed, steer, reset = move.keys()
     HideTrack = move.swap(HideTrack)
-    
     if HideTrack == True:
         for i in angles:
             line = AiSight.sight(x,y,rotate,pixels,pitch,i)
             line.line()
     else:
         track.blit(0,0)
-
+    player = pyg.sprite.Sprite(car, x , y, subpixel= True)
+    player.rotation = math.degrees(rotate)
+    player.draw()
     crash = crashDetection.crash(x, y, rotate, xSpeed, ySpeed, pitch, pixels, modifyerScaleX, modifyerScaleY, velocity, steer)
     x, y, rotate, velocity, xSpeed, ySpeed, steer, reset= crash.crashCheck()
     if reset == True or reset == True: 
+        player = pyg.sprite.Sprite(car, x , y, subpixel= True)
+        player.rotation = math.degrees(rotate)
         player.draw()
         reset = False
         time.sleep(0.75)
-    
-    player.draw()
-    
     
 
     
