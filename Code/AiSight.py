@@ -1,6 +1,7 @@
 import math
-import walls
 import pyglet as py
+import numpy
+numpy
 class sight:
     def __init__(self, carX, carY, carRota,bitImg, pitch ,angle):
         self.isStraight = False
@@ -97,6 +98,8 @@ class sight:
         else:
             sight.angled(self)
             return
+        
+        
         
     
     

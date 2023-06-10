@@ -5,7 +5,7 @@ class carBuild:
     def __init__(self, width, height, modX, modY):
         self.width = width
         self.height = height
-        self.preCar = Image.open(filePath.resource_path("preCar.png"))
+        self.preCar = Image.open("preCar.png")
         self.preCarWidth, self.preCarHeigh = self.preCar.size
         self.modX, self.modY = modX, modY
         self.newcar = self.preCar.resize((int(self.preCarWidth*self.modX), int(self.preCarHeigh*self.modY)))

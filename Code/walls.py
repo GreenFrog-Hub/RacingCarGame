@@ -7,7 +7,7 @@ class walls:
         self.height = height
         self.display = pyg.canvas.Display()
         self.screen = self.display.get_default_screen()
-        self.preTrack = Image.open(filePath.resource_path("BW.png"))
+        self.preTrack = Image.open(("BW.png"))
         self.preTrackWidth, self.preTrackHeigh = self.preTrack.size
         self.modX, self.modY = modX, modY
         self.newTrack = self.preTrack.resize((int(self.preTrackWidth*self.modX), int(self.preTrackHeigh*self.modY)))
